@@ -6,19 +6,18 @@
 /*   By: msaadidi <msaadidi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/25 14:59:08 by msaadidi          #+#    #+#             */
-/*   Updated: 2024/02/25 19:50:16 by msaadidi         ###   ########.fr       */
+/*   Updated: 2024/02/26 18:59:13 by msaadidi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FdF.h"
 
-char    **get_map_lines(char *filename)
+char    **get_map_lines(int fd)
 {
 	char	*line;
 	char	*all_lines;
 	char	**lines;
 	all_lines = ft_calloc(1, sizeof(char));
-	int fd = open(filename, O_RDONLY, 0444);
 	line = get_next_line(fd);
 	while (line)
 	{
@@ -47,14 +46,23 @@ char	***get_map_coors(char	**map_lines)
 }
 t_map	**fill_map_elems(char ***map_strs, t_map **map_elems)
 {
-	int	i;
-	int	j;
+	int		i;
+	int		j;
+	char	**z_n_col;
 
 	i = 0;
 	while (map_strs[i])
 	{
-		
+		j = 0;
+		while (map_strs[i][j])
+		{
+			z_n_col = ft_split(map_strs[i][j], ',');
+			map_elems[i][j] = (t_map){i, j, ft_atoi(z_n_col[0]), ft_atoi(z_n_col[0]), get_color_from_str(z_n_col[1]), 0};
+			j++;
+		}
+		i++;
 	}
+	return(map_elems);
 }
 
 t_map	**map_strs_to_elems(char ***map_strs)
@@ -70,4 +78,10 @@ t_map	**map_strs_to_elems(char ***map_strs)
 		i++;
 	}
 	return (fill_map_elems(map_strs, map_elems));
+}
+
+t_map	**get_map(char	*filename)
+{
+	int fd = open(filename, O_RDONLY, 0444);
+	return(map_strs_to_elems(get_map_coors(get_map_lines(fd))));
 }
