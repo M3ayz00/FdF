@@ -6,7 +6,7 @@
 /*   By: msaadidi <msaadidi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 18:28:23 by msaadidi          #+#    #+#             */
-/*   Updated: 2024/02/26 18:38:57 by msaadidi         ###   ########.fr       */
+/*   Updated: 2024/02/27 14:54:53 by msaadidi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,8 @@ int ft_atoi_base(char *str, int base)
 	while(get_index(str[i], base) != -1)
 	{
 		result = result * base + get_index(str[i],base);
+		if (result < 0)
+			return ((sign != -1) * -1);
 		i++;
 	}
 	return (result * sign);

@@ -6,7 +6,7 @@
 /*   By: msaadidi <msaadidi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/25 15:47:49 by msaadidi          #+#    #+#             */
-/*   Updated: 2024/02/25 15:48:58 by msaadidi         ###   ########.fr       */
+/*   Updated: 2024/02/27 16:58:21 by msaadidi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ size_t	ft_strs_len(char **strs)
 {
 	int	i;
 
+	if (!strs)
+		return(0);
 	i = 0;
 	while (strs[i])
 		i++;

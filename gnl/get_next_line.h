@@ -6,7 +6,7 @@
 /*   By: msaadidi <msaadidi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/25 14:49:35 by msaadidi          #+#    #+#             */
-/*   Updated: 2024/02/25 15:15:57 by msaadidi         ###   ########.fr       */
+/*   Updated: 2024/02/27 17:37:05 by msaadidi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # include <stdio.h>
 # include <stdint.h>
 
-# define BUFFER_SIZE 1
+# define BUFFER_SIZE 1000
 
 char	*get_next_line(int fd);
 char	*ft_strjoin2(char *s1, char *s2);

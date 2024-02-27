@@ -6,13 +6,13 @@
 /*   By: msaadidi <msaadidi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 17:11:57 by msaadidi          #+#    #+#             */
-/*   Updated: 2023/11/05 17:37:54 by msaadidi         ###   ########.fr       */
+/*   Updated: 2024/02/27 16:00:23 by msaadidi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *str, int c)
+char	*ft_strrchr( char *str, int c)
 {
 	int	last_i;
 	int	i;

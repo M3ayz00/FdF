@@ -27,6 +27,10 @@ SRCS = ft_isalpha.c \
 		ft_strtrim.c \
 		ft_split.c \
 		ft_itoa.c \
+		is_space.c \
+		ft_arr_strs_len.c \
+		ft_atoi_base.c \
+		ft_strs_len.c \
 		ft_strncmp.c \
 		ft_strmapi.c \
 		ft_striteri.c \
@@ -49,3 +53,5 @@ fclean : clean
 	rm -f $(NAME)
 
 re : fclean all
+
+.SECONDARY : $(OBJS)
