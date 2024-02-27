@@ -6,7 +6,7 @@
 /*   By: msaadidi <msaadidi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 15:51:53 by msaadidi          #+#    #+#             */
-/*   Updated: 2024/02/27 16:30:54 by msaadidi         ###   ########.fr       */
+/*   Updated: 2024/02/27 18:19:05 by msaadidi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 //     t_data  img;
 
 //     mlx = mlx_init();
-//     mlx_win = mlx_new_window(mlx, 1920, 1080, "Hello World");
+    // mlx_win = mlx_new_window(mlx, 1920, 1080, "Hello World");
 //     img.img = mlx_new_image(mlx , 1920, 1080);
 //     img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length, &img.endian);
 //     draw_line_lower_slope(&img, 1, 1, 800, 550);
@@ -37,6 +37,7 @@ int main(int ac, char **av)
     else
     {
         get_map(av[1]);
+        system("Leaks fdf");
         return (0);
     }
 }

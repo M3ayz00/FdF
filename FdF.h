@@ -6,7 +6,7 @@
 /*   By: msaadidi <msaadidi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 16:16:09 by msaadidi          #+#    #+#             */
-/*   Updated: 2024/02/27 17:23:15 by msaadidi         ###   ########.fr       */
+/*   Updated: 2024/02/27 18:19:35 by msaadidi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,25 @@
 # include <math.h>
 # include "gnl/get_next_line.h"
 # include "libft/libft.h"
+
+# define WIDTH	1920
+# define HEIGHT	1080
+
+typedef	struct s_line_plot
+{
+	int	dx;
+	int	dy;
+	
+}	t_line_plot;
+
+
+typedef	struct	s_3d_vector
+{
+	int	x;
+	int	y;
+	int	z;
+	int	color;
+}	t_3d_vector;
 
 typedef struct s_map
 {

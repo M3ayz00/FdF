@@ -6,7 +6,7 @@
 /*   By: msaadidi <msaadidi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 15:25:40 by msaadidi          #+#    #+#             */
-/*   Updated: 2024/02/27 15:44:27 by msaadidi         ###   ########.fr       */
+/*   Updated: 2024/02/27 18:23:26 by msaadidi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,44 +21,44 @@ void	my_put_pixel(t_data *data, int x, int y, int color)
 }
 
 
-void    draw_line_lower_slope(t_data *data, int x1, int y1, int x2, int y2)
+void    draw_line_lower_slope(t_data *data, t_3d_vector p0, t_3d_vector p1, t_line_plot plt)
 {
-	int dx = x2 - x1;
-	int dy = y2 - y1;
-	int P = 2 * dx - dy;
-	int	x = x1;
-	int	y = y1;
-	while (x <= x2)
+	plt.dx = p1.x - p0.x;
+	plt.dy = p1.y - p0.y;
+	int P = 2 * plt.dy - plt.dx;
+	int	x = p0.x;
+	int	y = p0.y;
+	while (x <= p1.x)
 	{
 		my_put_pixel(data, x, y, 0xFFFFFF);
 		x++;
 		if (P < 0)
-			P = P + 2 * dy;
+			P = P + 2 * plt.dy;
 		else
 		{
-			P = P + 2 * dy - 2 * dx;
+			P = P + 2 * plt.dy - 2 * plt.dx;
 			y++;
 		}
 	}
 }
 
-void    draw_line_higher_slope(t_data *data, int x1, int y1, int x2, int y2)
+void    draw_line_higher_slope(t_data *data, t_3d_vector p0, t_3d_vector p1, t_line_plot plt)
 {
-	int dx = x2 - x1;
-	int dy = y2 - y1;
-	int P = 2 * dx - dy;
-	int	x = x1;
-	int	y = y1;
-	while (y <= y2)
+	plt.dx = p1.x - p0.x;
+	plt.dy = p1.y - p0.y;
+	int P = 2 * plt.dx - plt.dy;
+	int	x = p0.x;
+	int	y = p0.y;
+	while (y <= p1.y)
 	{
 		my_put_pixel(data, x, y, 0xFFFFFF);
-		y++;
+		x++;
 		if (P < 0)
-			P = P + 2 * dx;
+			P = P + 2 * plt.dx;
 		else
 		{
-			P = P + 2 * dx - 2 * dy;
-			x++;
+			P = P + 2 * plt.dx - 2 * plt.dy;
+			y++;
 		}
 	}
 }
