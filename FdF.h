@@ -6,7 +6,7 @@
 /*   By: msaadidi <msaadidi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 16:16:09 by msaadidi          #+#    #+#             */
-/*   Updated: 2024/03/10 18:35:47 by msaadidi         ###   ########.fr       */
+/*   Updated: 2024/03/10 22:25:12 by msaadidi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,18 @@
 # include "gnl/get_next_line.h"
 # include "libft/libft.h"
 
-# define WIDTH	1920
-# define HEIGHT	1080
+# define WIDTH	800
+# define HEIGHT	600
 
 typedef	struct s_draw_tools
 {
+	int	curr_x;
+	int	curr_y;
 	int	dx;
 	int	dy;
+	int	P;
+	int	xi;
+	int	yi;
 }	t_draw_tools;
 
 typedef	struct	s_2d_vector
@@ -99,6 +104,8 @@ t_map_borders   get_map_borders(t_map **map);
 t_offset    get_offset(t_map_borders borders);
 t_3d_vector get_vector(t_map point);
 t_3d_vector scale_n_offset(t_3d_vector point, double scale, t_offset offset);
+void    draw(t_map **map, t_fdf *fdf);
+t_3d_vector ft_offset(t_3d_vector point, t_offset offset);
 
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: msaadidi <msaadidi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 18:29:16 by msaadidi          #+#    #+#             */
-/*   Updated: 2024/03/10 16:07:53 by msaadidi         ###   ########.fr       */
+/*   Updated: 2024/03/10 21:19:56 by msaadidi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 # include <fcntl.h>
 
 int     is_space(char c);
-int     ft_min(int n1, int n2);
+double     ft_min(double n1, double n2);
 int		ft_atoi( char *str);
 int     ft_atoi_base(char *str, int base);
 int		ft_isascii(int c);

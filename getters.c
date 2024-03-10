@@ -6,7 +6,7 @@
 /*   By: msaadidi <msaadidi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 13:45:15 by msaadidi          #+#    #+#             */
-/*   Updated: 2024/03/10 18:07:06 by msaadidi         ###   ########.fr       */
+/*   Updated: 2024/03/10 21:32:07 by msaadidi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ t_offset    get_offset(t_map_borders borders)
 
 	width = abs(borders.max.x - borders.min.x);
 	height = abs(borders.max.y - borders.max.y);
-	offset.x = round(WIDTH - width / 2);
-	offset.y = round(HEIGHT - height / 2);
+	offset.x = round((WIDTH - width) / 2);
+	offset.y = round((HEIGHT - height) / 2);
 	return (offset);
 }
 
