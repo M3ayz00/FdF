@@ -6,7 +6,7 @@
 /*   By: msaadidi <msaadidi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 16:16:09 by msaadidi          #+#    #+#             */
-/*   Updated: 2024/03/10 22:25:12 by msaadidi         ###   ########.fr       */
+/*   Updated: 2024/03/11 17:10:23 by msaadidi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,19 +22,9 @@
 # include "gnl/get_next_line.h"
 # include "libft/libft.h"
 
-# define WIDTH	800
-# define HEIGHT	600
+# define WIDTH	1920
+# define HEIGHT	1080
 
-typedef	struct s_draw_tools
-{
-	int	curr_x;
-	int	curr_y;
-	int	dx;
-	int	dy;
-	int	P;
-	int	xi;
-	int	yi;
-}	t_draw_tools;
 
 typedef	struct	s_2d_vector
 {
@@ -49,6 +39,24 @@ typedef	struct	s_3d_vector
 	int	z;
 	int	color;
 }	t_3d_vector;
+
+typedef struct s_3d_matrix
+{
+	t_3d_vector	i;
+	t_3d_vector	j;
+	t_3d_vector	k;
+}	t_3d_matrix;
+
+
+typedef	struct s_draw_tools
+{
+	t_3d_vector curr;
+	int	dx;
+	int	dy;
+	int	P;
+	int	xi;
+	int	yi;
+}	t_draw_tools;
 
 typedef struct s_map
 {
@@ -106,6 +114,10 @@ t_3d_vector get_vector(t_map point);
 t_3d_vector scale_n_offset(t_3d_vector point, double scale, t_offset offset);
 void    draw(t_map **map, t_fdf *fdf);
 t_3d_vector ft_offset(t_3d_vector point, t_offset offset);
+t_3d_vector ft_scale(t_3d_vector point, double scale);
+t_color split_color(int rgbt);
+int merge_colors(int t, int r, int g, int b);
+int grad_col_pos(t_3d_vector start, t_3d_vector curr, t_3d_vector end);
 
 
 #endif
