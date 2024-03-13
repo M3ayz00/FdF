@@ -6,7 +6,7 @@
 /*   By: msaadidi <msaadidi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 16:16:09 by msaadidi          #+#    #+#             */
-/*   Updated: 2024/03/12 21:30:10 by msaadidi         ###   ########.fr       */
+/*   Updated: 2024/03/13 18:22:56 by msaadidi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,12 +122,13 @@ t_offset    get_offset(t_map_borders borders);
 t_3d_vector get_vector(t_map point);
 t_3d_vector	scale_n_offset(t_3d_vector point, t_fdf *fdf, t_3d_vector (*trans)(t_3d_vector, t_fdf *));
 void	draw(t_fdf *fdf, t_3d_vector (*trans)(t_3d_vector, t_fdf *));
-t_3d_vector	ft_offset(t_3d_vector point, t_fdf *fdf, t_3d_vector (*trans)(t_3d_vector, t_fdf *));
-t_3d_vector ft_scale(t_3d_vector point, double scale);
+t_3d_vector	apply_offset(t_3d_vector point, t_fdf *fdf, t_3d_vector (*trans)(t_3d_vector, t_fdf *));
+t_3d_vector apply_scale(t_3d_vector point, double scale);
 t_color split_color(int rgbt);
 int merge_colors(int t, int r, int g, int b);
 int grad_col_pos(t_3d_vector start, t_3d_vector curr, t_3d_vector end);
 t_3d_vector isometric(t_3d_vector v , t_fdf *fdf);
+void key_hooks(int keycode, void *param);
 
 
 #endif

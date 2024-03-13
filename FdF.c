@@ -6,7 +6,7 @@
 /*   By: msaadidi <msaadidi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 15:51:53 by msaadidi          #+#    #+#             */
-/*   Updated: 2024/03/12 17:45:47 by msaadidi         ###   ########.fr       */
+/*   Updated: 2024/03/13 17:35:55 by msaadidi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ int main(int ac, char **av)
     fdf.scale = get_scale(fdf.map_borders);
     fdf.offset = get_offset(fdf.map_borders);
     draw(&fdf, isometric);
+    // mlx_hook(fdf.mlx_win, 2, 1L<<0, key_hooks, &fdf);
     mlx_put_image_to_window(fdf.mlx, fdf.mlx_win, fdf.img, 0, 0);
     mlx_loop(fdf.mlx);
 }
