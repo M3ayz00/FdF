@@ -6,7 +6,7 @@
 /*   By: msaadidi <msaadidi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 18:13:16 by msaadidi          #+#    #+#             */
-/*   Updated: 2024/03/13 18:22:38 by msaadidi         ###   ########.fr       */
+/*   Updated: 2024/03/14 02:14:58 by msaadidi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,15 +24,12 @@ t_3d_vector	apply_scale(t_3d_vector point, double scale)
 
 t_3d_vector	apply_offset(t_3d_vector point, t_fdf *fdf, t_3d_vector (*trans)(t_3d_vector, t_fdf *))
 {
-	t_3d_vector	tmp;
-
-	tmp = trans(point, fdf);
-	printf("%f , %f, %f\n", tmp.x, tmp.y, tmp.z);
+	point = trans(point, fdf);
 	return ((t_3d_vector){
-		tmp.x += fdf->offset.x,
-		tmp.y += fdf->offset.y,
-		tmp.z,
-		tmp.color
+		point.x += fdf->offset.x,
+		point.y += fdf->offset.y,
+		point.z,
+		point.color
 	});
 }
 

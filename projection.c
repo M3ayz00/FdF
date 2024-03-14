@@ -6,7 +6,7 @@
 /*   By: msaadidi <msaadidi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 17:09:09 by msaadidi          #+#    #+#             */
-/*   Updated: 2024/03/13 18:34:30 by msaadidi         ###   ########.fr       */
+/*   Updated: 2024/03/14 02:40:58 by msaadidi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,12 +52,12 @@ t_3d_matrix get_rot_matrix(char axis, double deg)
 
 t_3d_vector isometric(t_3d_vector v, t_fdf *fdf)
 {
-    double z_deg = 10;
-    double y_deg = atan(sqrt(2));
+    double x_deg = -atan(sqrt(2));
+    double z_deg = -45;
     v = matrix_x_vector(get_rot_matrix('z', z_deg), v);
-    v = matrix_x_vector(get_rot_matrix('y', y_deg), v);
+    v = matrix_x_vector(get_rot_matrix('x', x_deg), v);
     fdf->z_deg = z_deg;
-    fdf->x_deg = y_deg;
+    fdf->x_deg = x_deg;
     fdf->y_deg = 0;
     return (v);
 }
