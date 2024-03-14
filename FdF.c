@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   FdF.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: msaadidi <msaadidi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: m3ayz00 <m3ayz00@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 15:51:53 by msaadidi          #+#    #+#             */
-/*   Updated: 2024/03/13 17:35:55 by msaadidi         ###   ########.fr       */
+/*   Updated: 2024/03/14 03:53:54 by m3ayz00          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,10 @@ int main(int ac, char **av)
     fdf.img = mlx_new_image(fdf.mlx , WIDTH, HEIGHT);
     fdf.addr = mlx_get_data_addr(fdf.img, &fdf.bpp, &fdf.line_length, &fdf.endian);
     fdf.map = get_map(av[1]);
-    fdf.map_borders = get_map_borders(fdf.map);
-    fdf.scale = get_scale(fdf.map_borders);
-    fdf.offset = get_offset(fdf.map_borders);
+    fdf.scale = get_scale(get_map_borders(fdf.map, 1, &fdf));
+    fdf.offset = get_offset(get_map_borders(fdf.map, fdf.scale, &fdf));
     draw(&fdf, isometric);
-    // mlx_hook(fdf.mlx_win, 2, 1L<<0, key_hooks, &fdf);
+    mlx_loop_hook(fdf.mlx, key_hooks, &fdf);
     mlx_put_image_to_window(fdf.mlx, fdf.mlx_win, fdf.img, 0, 0);
     mlx_loop(fdf.mlx);
 }

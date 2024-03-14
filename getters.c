@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   getters.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: msaadidi <msaadidi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: m3ayz00 <m3ayz00@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 13:45:15 by msaadidi          #+#    #+#             */
-/*   Updated: 2024/03/14 02:20:23 by msaadidi         ###   ########.fr       */
+/*   Updated: 2024/03/14 03:51:53 by m3ayz00          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,32 +43,31 @@ double	get_scale(t_map_borders borders)
 	return (ft_min((WIDTH - WIDTH / 8) / width, (HEIGHT - HEIGHT / 8) / height));
 }
 
-t_map_borders   get_map_borders(t_map **map)
+t_map_borders   get_map_borders(t_map **map, double scale, t_fdf *fdf)
 {
-	t_map_borders	dims;
 	int				i;
 	int				j;
 	t_3d_vector		point;
 	
-	dims.min = (t_2d_vector){0, 0};
-	dims.max = (t_2d_vector){0, 0};
+	fdf->map_borders.min = (t_2d_vector){0, 0};
+	fdf->map_borders.max = (t_2d_vector){0, 0};
 	i = -1;
 	while(map[++i])
 	{
 		j = -1;
 		while(!map[i][++j].end)
 		{
-			point = get_vector(map[i][j]);
-			if (dims.min.x > floor(point.x))
-				dims.min.x = floor(point.x);
-			else if (dims.max.x < ceil(point.x))
-				dims.max.x = ceil(point.x);
-			if (dims.min.y > floor(point.y))
-				dims.min.y = floor(point.y);
-			else if (dims.max.y < ceil(point.y))
-				dims.max.y = ceil(point.y);
+			point = isometric(apply_scale(get_vector(map[i][j]), scale), fdf);
+			if (fdf->map_borders.min.x > floor(point.x))
+				fdf->map_borders.min.x = floor(point.x);
+			else if (fdf->map_borders.max.x < ceil(point.x))
+				fdf->map_borders.max.x = ceil(point.x);
+			if (fdf->map_borders.min.y > floor(point.y))
+				fdf->map_borders.min.y = floor(point.y);
+			else if (fdf->map_borders.max.y < ceil(point.y))
+				fdf->map_borders.max.y = ceil(point.y);
 		}
 	}
-	return (dims);
+	return (fdf->map_borders);
 }
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   FdF.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: msaadidi <msaadidi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: m3ayz00 <m3ayz00@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 16:16:09 by msaadidi          #+#    #+#             */
-/*   Updated: 2024/03/13 20:52:00 by msaadidi         ###   ########.fr       */
+/*   Updated: 2024/03/14 03:51:01 by m3ayz00          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,12 +97,12 @@ typedef struct	s_fdf
 	int				line_length;
 	int				endian;
 	t_map			**map;
-	t_map_borders	map_borders;
 	t_offset		offset;
 	double			scale;
 	double			x_deg;
 	double			y_deg;
 	double			z_deg;
+	double			depth;
 }				t_fdf;
 
 
@@ -117,7 +117,7 @@ void    free_map_coors(char ***strs);
 void    free_map_elems(t_map **map_elems);
 
 double	get_scale(t_map_borders borders);
-t_map_borders   get_map_borders(t_map **map);
+t_map_borders   get_map_borders(t_map **map, double scale, t_fdf *fdf);
 t_offset    get_offset(t_map_borders borders);
 t_3d_vector get_vector(t_map point);
 t_3d_vector	scale_n_offset(t_3d_vector point, t_fdf *fdf, t_3d_vector (*trans)(t_3d_vector, t_fdf *));

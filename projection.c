@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   projection.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: msaadidi <msaadidi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: m3ayz00 <m3ayz00@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 17:09:09 by msaadidi          #+#    #+#             */
-/*   Updated: 2024/03/14 02:40:58 by msaadidi         ###   ########.fr       */
+/*   Updated: 2024/03/14 03:38:37 by m3ayz00          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ t_3d_vector matrix_x_vector(t_3d_matrix m, t_3d_vector v)
     double *tmp;
     
     tmp = (double[3]){v.x, v.y, v.z};
-    v.x = tmp[0] * m.i.x + tmp[1] * m.j.x + tmp[2] * m.k.x;
-    v.y = tmp[0] * m.i.y + tmp[1] * m.j.y + tmp[2] * m.k.y;
-    v.z = tmp[0] * m.i.z + tmp[1] * m.j.z + tmp[2] * m.k.z;
+    v.x = tmp[0] * m.i.x + tmp[1] * m.i.y + tmp[2] * m.i.z;
+    v.y = tmp[0] * m.j.x + tmp[1] * m.j.y + tmp[2] * m.j.z;
+    v.z = tmp[0] * m.k.x + tmp[1] * m.k.y + tmp[2] * m.k.z;
     return (v);
 }
 
@@ -52,8 +52,8 @@ t_3d_matrix get_rot_matrix(char axis, double deg)
 
 t_3d_vector isometric(t_3d_vector v, t_fdf *fdf)
 {
-    double x_deg = -atan(sqrt(2));
-    double z_deg = -45;
+    double x_deg = atan(sqrt(2));
+    double z_deg = 45;
     v = matrix_x_vector(get_rot_matrix('z', z_deg), v);
     v = matrix_x_vector(get_rot_matrix('x', x_deg), v);
     fdf->z_deg = z_deg;
