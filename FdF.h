@@ -6,7 +6,7 @@
 /*   By: msaadidi <msaadidi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 16:16:09 by msaadidi          #+#    #+#             */
-/*   Updated: 2024/03/15 17:21:51 by msaadidi         ###   ########.fr       */
+/*   Updated: 2024/03/15 21:58:04 by msaadidi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,7 +118,7 @@ typedef struct	s_fdf
 	double			x_deg;
 	double			y_deg;
 	double			z_deg;
-}				t_fdf;
+}	t_fdf;
 
 
 
@@ -143,6 +143,7 @@ t_color split_color(int rgbt);
 int merge_colors(int t, int r, int g, int b);
 int grad_col_pos(t_3d_vector start, t_3d_vector curr, t_3d_vector end);
 t_3d_vector isometric(t_3d_vector v , t_fdf *fdf);
+t_3d_vector top_down(t_3d_vector v, t_fdf *fdf);
 int key_hooks(int keycode, void *param);
 void	clear_img(t_fdf *fdf);
 
