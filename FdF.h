@@ -6,7 +6,7 @@
 /*   By: msaadidi <msaadidi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 16:16:09 by msaadidi          #+#    #+#             */
-/*   Updated: 2024/03/15 21:58:04 by msaadidi         ###   ########.fr       */
+/*   Updated: 2024/03/16 21:50:34 by msaadidi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@
 # include "gnl/get_next_line.h"
 # include "libft/libft.h"
 
-# define WIDTH	1024
-# define HEIGHT	1024
+# define WIDTH	1600
+# define HEIGHT	1000
 # define KEY_UP 125
 # define KEY_DOWN 126
 # define KEY_RIGHT 124
@@ -35,6 +35,11 @@
 # define KEY_S 1
 # define KEY_W 13
 # define KEY_P 35
+# define KEY_I 34
+# define KEY_T 17
+# define KEY_R 15
+# define KEY_MULTP 67
+# define KEY_DIV 75
 
 typedef	struct	s_2d_vector
 {
@@ -118,6 +123,7 @@ typedef struct	s_fdf
 	double			x_deg;
 	double			y_deg;
 	double			z_deg;
+	double			depth;
 }	t_fdf;
 
 
@@ -144,6 +150,8 @@ int merge_colors(int t, int r, int g, int b);
 int grad_col_pos(t_3d_vector start, t_3d_vector curr, t_3d_vector end);
 t_3d_vector isometric(t_3d_vector v , t_fdf *fdf);
 t_3d_vector top_down(t_3d_vector v, t_fdf *fdf);
+t_3d_vector rotate(t_3d_vector v, t_fdf *fdf);
+t_3d_vector right_view(t_3d_vector v, t_fdf *fdf);
 int key_hooks(int keycode, void *param);
 void	clear_img(t_fdf *fdf);
 

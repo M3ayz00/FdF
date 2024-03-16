@@ -6,7 +6,7 @@
 /*   By: msaadidi <msaadidi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 17:02:49 by msaadidi          #+#    #+#             */
-/*   Updated: 2024/03/15 22:34:14 by msaadidi         ###   ########.fr       */
+/*   Updated: 2024/03/16 21:52:51 by msaadidi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,16 @@
 
 void    draw_mode(char mode, t_fdf *fdf)
 {
+    void *trans;
     if (mode == 'I')
-        draw(fdf, isometric);
-    if (mode == 'U')
-        draw(fdf, top_down);
+        trans = isometric;
+    else if (mode == 'U')
+        trans = top_down;
+    else if (mode == 'R')
+        trans = right_view;
+    else
+        trans = rotate;
+    draw(fdf, trans);
 }
 
 int key_hooks(int keycode, void *param)
@@ -26,29 +32,43 @@ int key_hooks(int keycode, void *param)
     
     fdf = (t_fdf *)param;
     printf("%d\n", keycode);
-    if (keycode == KEY_P)
+    if (keycode == KEY_I)
         draw_mode('I', fdf);
-    else if (keycode == KEY_A)
+    else if (keycode == KEY_T)
         draw_mode('U', fdf);
+    else if (keycode == KEY_R)
+        draw_mode('R', fdf);
+    else if (keycode == KEY_MULTP)
+        fdf->depth += 1;
+    else if (keycode == KEY_DIV)
+        fdf->depth -= 1;
     else if (keycode == KEY_DOWN)
-        fdf->offset.y -= 5;
+        fdf->offset.y -= 10;
     else if (keycode == KEY_UP)
-        fdf->offset.y += 5;
+        fdf->offset.y += 10;
     else if (keycode == KEY_RIGHT)
-        fdf->offset.x += 5;
+        fdf->offset.x += 10;
     else if (keycode == KEY_LEFT)
-        fdf->offset.x -= 5;
+        fdf->offset.x -= 10;
+    else if (keycode == KEY_S)
+        fdf->x_deg -= 0.1;
+    else if (keycode == KEY_W)
+        fdf->x_deg += 0.1;
+    else if (keycode == KEY_A)
+        fdf->y_deg -= 0.1;
+    else if (keycode == KEY_D)
+        fdf->y_deg += 0.1;
     else if (keycode == KEY_ADD)
     {
-        if (fdf->scale < 2000)   
-            fdf->scale += 0.1;
+        if (fdf->scale < 1000)   
+            fdf->scale += 1;
     }
     else if (keycode == KEY_SUBSTRACT)
     {
         if (fdf->scale > 2) 
-            fdf->scale -= 0.1;
+            fdf->scale -= 1;
     }
-    draw(fdf, isometric);
+    draw_mode('N', fdf);
     mlx_put_image_to_window(fdf->mlx, fdf->mlx_win, fdf->img.img, 0, 0);
     return (0);
 }
