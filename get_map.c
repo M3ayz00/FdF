@@ -6,7 +6,7 @@
 /*   By: msaadidi <msaadidi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/25 14:59:08 by msaadidi          #+#    #+#             */
-/*   Updated: 2024/03/12 21:41:25 by msaadidi         ###   ########.fr       */
+/*   Updated: 2024/03/17 23:49:50 by msaadidi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,6 @@ t_map	**fill_map_elems(char ***map_strs, t_map **map_elems)
 			if (!z_n_col)
 				return (free_map_coors(map_strs), free_map_elems(map_elems), NULL);
 			map_elems[i][j] = (t_map){j, i, ft_atoi(z_n_col[0]), get_color_from_str(z_n_col[1]), 0};
-			// printf("%d | %d | %d | %d | %d\n", i, j, ft_atoi(z_n_col[0]), get_color_from_str(z_n_col[1]));
 			free_strs(z_n_col);
 			j++;
 		}
@@ -106,5 +105,6 @@ t_map	**get_map(char	*filename)
 	int fd = open(filename, O_RDONLY, 0444);
 	if (fd < 0)
 		perror_and_exit(filename);
+	free(filename);
 	return(map_strs_to_elems(get_map_coors(get_map_lines(fd))));
 }

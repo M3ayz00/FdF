@@ -6,15 +6,16 @@
 /*   By: msaadidi <msaadidi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 22:29:51 by msaadidi          #+#    #+#             */
-/*   Updated: 2023/11/24 18:50:20 by msaadidi         ###   ########.fr       */
+/*   Updated: 2024/03/17 22:34:29 by msaadidi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstr_fd(char *s, int fd)
+int	ft_putstr_fd(char *s, int fd)
 {
 	if (!s || fd < 0)
-		return ;
+		return (EXIT_FAILURE);
 	write(fd, s, ft_strlen(s));
+	return(EXIT_FAILURE);
 }

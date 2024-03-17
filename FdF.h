@@ -6,7 +6,7 @@
 /*   By: msaadidi <msaadidi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 16:16:09 by msaadidi          #+#    #+#             */
-/*   Updated: 2024/03/16 21:50:34 by msaadidi         ###   ########.fr       */
+/*   Updated: 2024/03/17 23:45:56 by msaadidi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,6 +114,7 @@ typedef	struct s_img
 
 typedef struct	s_fdf 
 {
+	char			*filename;
 	void			*mlx;
 	void			*mlx_win;
 	t_img			img;
@@ -154,6 +155,7 @@ t_3d_vector rotate(t_3d_vector v, t_fdf *fdf);
 t_3d_vector right_view(t_3d_vector v, t_fdf *fdf);
 int key_hooks(int keycode, void *param);
 void	clear_img(t_fdf *fdf);
-
+int    parse_args(int ac, char **av, t_fdf *fdf);
+int treat_errors(t_fdf *fdf);
 
 #endif

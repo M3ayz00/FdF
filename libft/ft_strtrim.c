@@ -6,7 +6,7 @@
 /*   By: msaadidi <msaadidi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 21:25:50 by msaadidi          #+#    #+#             */
-/*   Updated: 2024/02/27 16:00:23 by msaadidi         ###   ########.fr       */
+/*   Updated: 2024/03/17 23:08:03 by msaadidi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,10 +51,6 @@ char	*ft_strtrim(char  *s, char  *set)
 		ft_memcpy(tmp, s + i, j - i);
 	}
 	else
-	{
-		tmp = ft_calloc(1, sizeof(char));
-		if (!tmp)
-			return (NULL);
-	}
+		return (NULL);
 	return (tmp);
 }
