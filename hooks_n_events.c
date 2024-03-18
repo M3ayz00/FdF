@@ -6,7 +6,7 @@
 /*   By: msaadidi <msaadidi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 17:02:49 by msaadidi          #+#    #+#             */
-/*   Updated: 2024/03/17 23:42:23 by msaadidi         ###   ########.fr       */
+/*   Updated: 2024/03/18 01:02:16 by msaadidi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,7 @@ void    draw_mode(char mode, t_fdf *fdf)
     if (mode == 'I')
         trans = isometric;
     else if (mode == 'U')
-        trans = top_down;
-    else if (mode == 'R')
-        trans = right_view;
+        trans = parallel;
     else
         trans = rotate;
     draw(fdf, trans);
@@ -38,6 +36,8 @@ int key_hooks(int keycode, void *param)
         draw_mode('U', fdf);
     else if (keycode == KEY_R)
         draw_mode('R', fdf);
+    else if (keycode == 53)
+        mlx_destroy_window(fdf->mlx, fdf->mlx_win);
     else if (keycode == KEY_MULTP)
         fdf->depth += 1;
     else if (keycode == KEY_DIV)
@@ -60,7 +60,7 @@ int key_hooks(int keycode, void *param)
         fdf->y_deg += 0.1;
     else if (keycode == KEY_ADD)
     {
-        if (fdf->scale < 1000)   
+        if (fdf->scale < 1000)
             fdf->scale += 1;
     }
     else if (keycode == KEY_SUBSTRACT)

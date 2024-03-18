@@ -6,7 +6,7 @@
 /*   By: msaadidi <msaadidi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 16:16:09 by msaadidi          #+#    #+#             */
-/*   Updated: 2024/03/17 23:45:56 by msaadidi         ###   ########.fr       */
+/*   Updated: 2024/03/18 00:37:56 by msaadidi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -150,9 +150,8 @@ t_color split_color(int rgbt);
 int merge_colors(int t, int r, int g, int b);
 int grad_col_pos(t_3d_vector start, t_3d_vector curr, t_3d_vector end);
 t_3d_vector isometric(t_3d_vector v , t_fdf *fdf);
-t_3d_vector top_down(t_3d_vector v, t_fdf *fdf);
+t_3d_vector parallel(t_3d_vector v, t_fdf *fdf);
 t_3d_vector rotate(t_3d_vector v, t_fdf *fdf);
-t_3d_vector right_view(t_3d_vector v, t_fdf *fdf);
 int key_hooks(int keycode, void *param);
 void	clear_img(t_fdf *fdf);
 int    parse_args(int ac, char **av, t_fdf *fdf);

@@ -6,7 +6,7 @@
 /*   By: msaadidi <msaadidi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 16:33:43 by msaadidi          #+#    #+#             */
-/*   Updated: 2024/03/17 23:48:09 by msaadidi         ###   ########.fr       */
+/*   Updated: 2024/03/18 00:39:15 by msaadidi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ int    parse_args(int ac, char **av, t_fdf *fdf)
 
 int treat_errors(t_fdf *fdf)
 {
-    printf("%s\n", fdf->filename);
     fdf->map = get_map(fdf->filename);
     if (!fdf->map)
         return (EXIT_FAILURE);

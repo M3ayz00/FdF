@@ -6,7 +6,7 @@
 /*   By: msaadidi <msaadidi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 17:09:09 by msaadidi          #+#    #+#             */
-/*   Updated: 2024/03/17 21:30:22 by msaadidi         ###   ########.fr       */
+/*   Updated: 2024/03/18 00:37:33 by msaadidi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ t_3d_vector isometric(t_3d_vector v, t_fdf *fdf)
     return (v);
 }
 
-t_3d_vector top_down(t_3d_vector v, t_fdf *fdf)
+t_3d_vector parallel(t_3d_vector v, t_fdf *fdf)
 {
     double x_deg = 0;
     double z_deg = 0;
@@ -76,21 +76,6 @@ t_3d_vector top_down(t_3d_vector v, t_fdf *fdf)
     fdf->x_deg = x_deg;
     fdf->y_deg = y_deg;
     fdf->z_deg = z_deg;
-    return(v);
-}
-
-t_3d_vector right_view(t_3d_vector v, t_fdf *fdf)
-{
-    double x_deg = 0;
-    double y_deg = 90;
-    double z_deg = 0;
-    v.z *= fdf->depth;
-    v = matrix_x_vector(get_rot_matrix('x', x_deg), v);
-    v = matrix_x_vector(get_rot_matrix('y', y_deg), v);
-    v = matrix_x_vector(get_rot_matrix('z', z_deg), v);
-    fdf->z_deg = z_deg;
-    fdf->x_deg = x_deg;
-    fdf->y_deg = y_deg;
     return(v);
 }
 
