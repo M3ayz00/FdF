@@ -23,6 +23,10 @@ void    draw_mode(char mode, t_fdf *fdf)
         trans = rotate;
     draw(fdf, trans);
 }
+int close_hook()
+{
+    exit(0);
+}
 
 int key_hooks(int keycode, void *param)
 {
@@ -37,7 +41,7 @@ int key_hooks(int keycode, void *param)
     else if (keycode == KEY_R)
         draw_mode('R', fdf);
     else if (keycode == 53)
-        mlx_destroy_window(fdf->mlx, fdf->mlx_win);
+        exit(0);
     else if (keycode == KEY_MULTP)
         fdf->depth += 1;
     else if (keycode == KEY_DIV)

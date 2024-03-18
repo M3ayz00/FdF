@@ -12,14 +12,6 @@
 
 #include "FdF.h"
 
-int close_hook(void *param)
-{
-    t_fdf   *fdf;
-
-    fdf = (t_fdf *)param;
-    mlx_destroy_window(fdf->mlx, fdf->mlx_win);
-    return (0);
-}
 
 int main(int ac, char **av)
 {
@@ -34,7 +26,8 @@ int main(int ac, char **av)
     draw(&fdf, isometric);
     mlx_put_image_to_window(fdf.mlx, fdf.mlx_win, fdf.img.img, 0, 0);
     mlx_hook(fdf.mlx_win, 2, 0, key_hooks, &fdf);
-    mlx_hook(fdf.mlx_win, 22, 0, close_hook, &fdf);
+    mlx_hook(fdf.mlx_win, 17 , 1L << 17 , close_hook, &fdf);
     mlx_loop(fdf.mlx);
     free_map_elems(fdf.map);
+    // system("Leaks ./fdf");
 }

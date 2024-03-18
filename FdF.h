@@ -156,5 +156,5 @@ int key_hooks(int keycode, void *param);
 void	clear_img(t_fdf *fdf);
 int    parse_args(int ac, char **av, t_fdf *fdf);
 int treat_errors(t_fdf *fdf);
-
+int close_hook();
 #endif
