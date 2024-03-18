@@ -6,36 +6,36 @@
 /*   By: msaadidi <msaadidi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 18:28:23 by msaadidi          #+#    #+#             */
-/*   Updated: 2024/02/27 14:54:53 by msaadidi         ###   ########.fr       */
+/*   Updated: 2024/03/18 20:32:29 by msaadidi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int get_index(char c, int base)
+int	get_index(char c, int base)
 {
-	char    *h;
-	char    *H;
-	int     i;
-	
-	h = "0123456789abcdef";
-	H = "0123456789ABCDEF";
+	char	*small_h;
+	char	*big_h;
+	int		i;
+
+	small_h = "0123456789abcdef";
+	big_h = "0123456789ABCDEF";
 	i = 0;
 	while (i < base)
 	{
-		if (c == h[i] || c == H[i])
+		if (c == small_h[i] || c == big_h[i])
 			return (i);
 		i++;
 	}
 	return (-1);
 }
 
-int ft_atoi_base(char *str, int base)
+int	ft_atoi_base(char *str, int base)
 {
-	int sign;
-	int i;
-	int result;
-	
+	int	sign;
+	int	i;
+	int	result;
+
 	i = 0;
 	result = 0;
 	sign = 1;
@@ -47,9 +47,9 @@ int ft_atoi_base(char *str, int base)
 			sign = -1;
 		i++;
 	}
-	while(get_index(str[i], base) != -1)
+	while (get_index(str[i], base) != -1)
 	{
-		result = result * base + get_index(str[i],base);
+		result = result * base + get_index(str[i], base);
 		if (result < 0)
 			return ((sign != -1) * -1);
 		i++;

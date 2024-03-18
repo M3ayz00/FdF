@@ -6,15 +6,15 @@
 /*   By: msaadidi <msaadidi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 16:06:00 by msaadidi          #+#    #+#             */
-/*   Updated: 2024/03/10 21:19:33 by msaadidi         ###   ########.fr       */
+/*   Updated: 2024/03/18 20:29:16 by msaadidi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-double ft_min(double n1, double n2)
+double	ft_min(double n1, double n2)
 {
-    if (n1 > n2)
-        return (n2);
-    return (n1);
+	if (n1 > n2)
+		return (n2);
+	return (n1);
 }

@@ -12,7 +12,7 @@
 
 NAME = fdf
 CC = cc 
-CFLAGS = -Os -Ofast -fsanitize=address -g3 -Wall -Wextra -Werror 
+CFLAGS = -Os -Ofast -Wall -Wextra -Werror 
 MLX_FLAGS = -lmlx -framework OpenGL -framework AppKit
 SRCS = FdF.c bersenham_algo.c projection.c get_map.c color.c gradient.c getters.c draw.c scale_n_offset.c gnl/get_next_line.c error.c free.c hooks_n_events.c
 OBJS = $(SRCS:.c=.o)

@@ -6,13 +6,13 @@
 /*   By: msaadidi <msaadidi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 21:25:50 by msaadidi          #+#    #+#             */
-/*   Updated: 2024/03/17 23:08:03 by msaadidi         ###   ########.fr       */
+/*   Updated: 2024/03/18 20:23:47 by msaadidi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_start( char *set, char  *s)
+static int	ft_start(char *set, char *s)
 {
 	int	i;
 
@@ -22,7 +22,7 @@ static int	ft_start( char *set, char  *s)
 	return (i);
 }
 
-static int	ft_end( char *set, char  *s)
+static int	ft_end(char *set, char *s)
 {
 	int	j;
 
@@ -32,7 +32,7 @@ static int	ft_end( char *set, char  *s)
 	return (j);
 }
 
-char	*ft_strtrim(char  *s, char  *set)
+char	*ft_strtrim(char *s, char *set)
 {
 	unsigned int	i;
 	unsigned int	j;

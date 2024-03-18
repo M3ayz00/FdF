@@ -6,13 +6,13 @@
 /*   By: msaadidi <msaadidi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 17:11:38 by msaadidi          #+#    #+#             */
-/*   Updated: 2024/02/27 16:00:23 by msaadidi         ###   ########.fr       */
+/*   Updated: 2024/03/18 20:30:10 by msaadidi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *dest,  void *src, size_t n)
+void	*ft_memcpy(void *dest, void *src, size_t n)
 {
 	unsigned char		*d;
 	unsigned char		*s;

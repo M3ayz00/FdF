@@ -6,13 +6,13 @@
 /*   By: msaadidi <msaadidi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/25 14:59:08 by msaadidi          #+#    #+#             */
-/*   Updated: 2024/03/17 23:49:50 by msaadidi         ###   ########.fr       */
+/*   Updated: 2024/03/18 20:45:56 by msaadidi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FdF.h"
 
-char    **get_map_lines(int fd)
+char	**get_map_lines(int fd)
 {
 	char	*line;
 	char	*all_lines;
@@ -37,7 +37,7 @@ char    **get_map_lines(int fd)
 	return (close(fd), free(all_lines), lines);
 }
 
-char	***get_map_coors(char	**map_lines)
+char	***get_map_coors(char **map_lines)
 {
 	char	***coors;
 	int		i;
@@ -70,29 +70,33 @@ t_map	**fill_map_elems(char ***map_strs, t_map **map_elems)
 		{
 			z_n_col = ft_split(map_strs[i][j], ',');
 			if (!z_n_col)
-				return (free_map_coors(map_strs), free_map_elems(map_elems), NULL);
-			map_elems[i][j] = (t_map){j, i, ft_atoi(z_n_col[0]), get_color_from_str(z_n_col[1]), 0};
+				return (free_map_coors(map_strs),
+					free_map_elems(map_elems), NULL);
+			map_elems[i][j] = (t_map){j, i, ft_atoi(z_n_col[0]),
+				get_color_from_str(z_n_col[1]), 0};
 			free_strs(z_n_col);
 			j++;
 		}
 		map_elems[i][j] = (t_map){0, 0, 0, 0, 1};
 		i++;
 	}
-	return(free_map_coors(map_strs), map_elems);
+	return (free_map_coors(map_strs), map_elems);
 }
 
 t_map	**map_strs_to_elems(char ***map_strs)
 {
 	t_map	**map_elems;
 	int		i;
-	
-	map_elems = (t_map **)ft_calloc(ft_arr_strs_len(map_strs) + 1, sizeof(t_map *));
+
+	map_elems = (t_map **)ft_calloc(
+			ft_arr_strs_len(map_strs) + 1, sizeof(t_map *));
 	if (!map_elems)
 		return (free_map_coors(map_strs), NULL);
 	i = 0;
-	while(map_strs[i])
+	while (map_strs[i])
 	{
-		map_elems[i] = (t_map *)ft_calloc(ft_strs_len(map_strs[i]) + 1, sizeof(t_map));
+		map_elems[i] = (t_map *)ft_calloc(
+				ft_strs_len(map_strs[i]) + 1, sizeof(t_map));
 		if (!map_elems[i])
 			return (free_map_coors(map_strs), free_map_elems(map_elems), NULL);
 		i++;
@@ -100,11 +104,13 @@ t_map	**map_strs_to_elems(char ***map_strs)
 	return (fill_map_elems(map_strs, map_elems));
 }
 
-t_map	**get_map(char	*filename)
+t_map	**get_map(char *filename)
 {
-	int fd = open(filename, O_RDONLY, 0444);
+	int	fd;
+
+	fd = open(filename, O_RDONLY, 0444);
 	if (fd < 0)
 		perror_and_exit(filename);
 	free(filename);
-	return(map_strs_to_elems(get_map_coors(get_map_lines(fd))));
+	return (map_strs_to_elems(get_map_coors(get_map_lines(fd))));
 }
