@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   hooks_n_events.c                                   :+:      :+:    :+:   */
+/*   input_handling.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msaadidi <msaadidi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 17:02:49 by msaadidi          #+#    #+#             */
-/*   Updated: 2024/03/18 20:41:13 by msaadidi         ###   ########.fr       */
+/*   Updated: 2024/03/18 21:13:01 by msaadidi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	draw_mode(char mode, t_fdf *fdf)
 	draw(fdf, trans);
 }
 
-int	key_hooks_2(int keycode, t_fdf *fdf)
+void	key_hooks_2(int keycode, t_fdf *fdf)
 {
 	if (keycode == KEY_DOWN)
 		fdf->offset.y -= 10;

@@ -6,7 +6,7 @@
 #    By: msaadidi <msaadidi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/27 15:48:46 by msaadidi          #+#    #+#              #
-#    Updated: 2024/03/16 20:17:13 by msaadidi         ###   ########.fr        #
+#    Updated: 2024/03/18 21:12:32 by msaadidi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,20 @@ NAME = fdf
 CC = cc 
 CFLAGS = -Os -Ofast -Wall -Wextra -Werror 
 MLX_FLAGS = -lmlx -framework OpenGL -framework AppKit
-SRCS = FdF.c bersenham_algo.c projection.c get_map.c color.c gradient.c getters.c draw.c scale_n_offset.c gnl/get_next_line.c error.c free.c hooks_n_events.c
+SRCS = gnl/get_next_line.c \
+	color_gradient.c \
+	color_utils.c \
+	drawing.c \
+	error_handling.c \
+	FdF.c \
+	input_handling.c \
+	line_drawing.c \
+	map_geometry.c \
+	map_parser.c \
+	memory_management.c \
+	scaling_and_offsetting.c \
+	transformations.c
+	
 OBJS = $(SRCS:.c=.o)
 LIBFT = libft/libft.a
 
