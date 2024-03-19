@@ -6,7 +6,7 @@
 /*   By: msaadidi <msaadidi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 16:33:43 by msaadidi          #+#    #+#             */
-/*   Updated: 2024/03/19 00:29:18 by msaadidi         ###   ########.fr       */
+/*   Updated: 2024/03/19 21:15:12 by msaadidi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,5 +59,5 @@ int	treat_errors(t_fdf *fdf)
 			&fdf->img.bpp, &fdf->img.line_length, &fdf->img.endian);
 	if (!fdf->img.addr)
 		return (EXIT_FAILURE);
-	return (0);
+	return (EXIT_SUCCESS);
 }

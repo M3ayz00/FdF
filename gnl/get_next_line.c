@@ -6,7 +6,7 @@
 /*   By: msaadidi <msaadidi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/25 14:49:06 by msaadidi          #+#    #+#             */
-/*   Updated: 2024/02/25 15:15:38 by msaadidi         ###   ########.fr       */
+/*   Updated: 2024/03/19 21:16:34 by msaadidi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,7 +109,7 @@ char	*read_file(int fd, char *container)
 	free(buffer);
 	return (container);
 }
-#include <limits.h>
+
 char	*get_next_line(int fd)
 {
 	static char	*container;
