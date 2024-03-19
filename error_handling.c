@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   error_handling.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msaadidi <msaadidi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 16:33:43 by msaadidi          #+#    #+#             */
-/*   Updated: 2024/03/18 20:54:14 by msaadidi         ###   ########.fr       */
+/*   Updated: 2024/03/19 00:29:18 by msaadidi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int	treat_errors(t_fdf *fdf)
 	fdf->mlx = mlx_init();
 	if (!fdf->mlx)
 		return (EXIT_FAILURE);
-	fdf->mlx_win = mlx_new_window(fdf->mlx, WIDTH, HEIGHT, "FDF");
+	fdf->mlx_win = mlx_new_window(fdf->mlx, WIDTH, HEIGHT, "M3ayzoo's FdF");
 	fdf->img.img = mlx_new_image(fdf->mlx, WIDTH, HEIGHT);
 	if (!fdf->mlx_win || !fdf->img.img)
 		return (EXIT_FAILURE);

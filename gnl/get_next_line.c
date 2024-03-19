@@ -6,7 +6,7 @@
 /*   By: msaadidi <msaadidi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/25 14:49:06 by msaadidi          #+#    #+#             */
-/*   Updated: 2024/03/18 20:33:27 by msaadidi         ###   ########.fr       */
+/*   Updated: 2024/02/25 15:15:38 by msaadidi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ char	*ft_strjoin2(char *s1, char *s2)
 	size_t	str_len;
 
 	if (!s1)
-		return (ft_strdup(s2));
+		return (s2);
 	if (!s2)
-		return (ft_strdup(s1));
+		return (s1);
 	str_len = ft_strlen(s1) + ft_strlen(s2);
 	new_str = (char *)ft_calloc(str_len + 1, sizeof(char));
 	if (!new_str)
@@ -109,7 +109,7 @@ char	*read_file(int fd, char *container)
 	free(buffer);
 	return (container);
 }
-
+#include <limits.h>
 char	*get_next_line(int fd)
 {
 	static char	*container;

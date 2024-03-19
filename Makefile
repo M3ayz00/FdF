@@ -6,7 +6,7 @@
 #    By: msaadidi <msaadidi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/27 15:48:46 by msaadidi          #+#    #+#              #
-#    Updated: 2024/03/18 21:12:32 by msaadidi         ###   ########.fr        #
+#    Updated: 2024/03/19 00:47:01 by msaadidi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,16 +34,16 @@ LIBFT = libft/libft.a
 all : $(NAME)
 
 $(NAME) : $(OBJS)
-	cd libft && make && make clean
+	@cd libft && make && make clean
 	$(CC) $(CFLAGS) $(MLX_FLAGS) $(SRCS) $(LIBFT) -o $@
-	make clean
+	@make clean
 
 clean : 
-	rm -f $(OBJS)
+	@rm -f $(OBJS)
 
 fclean : clean
-	rm -f $(NAME)
-	rm -f $(LIBFT)
+	@rm -f $(NAME)
+	@rm -f $(LIBFT)
 
 re : fclean all
 
