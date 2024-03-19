@@ -6,11 +6,11 @@
 /*   By: msaadidi <msaadidi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 16:14:16 by msaadidi          #+#    #+#             */
-/*   Updated: 2024/03/19 00:11:00 by msaadidi         ###   ########.fr       */
+/*   Updated: 2024/03/19 21:22:12 by msaadidi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "FdF.h"
+#include "../FdF.h"
 
 double	get_position(t_3d_vector start, t_3d_vector curr, t_3d_vector end)
 {

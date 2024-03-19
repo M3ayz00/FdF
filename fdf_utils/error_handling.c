@@ -6,11 +6,11 @@
 /*   By: msaadidi <msaadidi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 16:33:43 by msaadidi          #+#    #+#             */
-/*   Updated: 2024/03/19 21:15:12 by msaadidi         ###   ########.fr       */
+/*   Updated: 2024/03/19 21:22:15 by msaadidi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "FdF.h"
+#include "../FdF.h"
 
 void	perror_and_exit(char *err)
 {

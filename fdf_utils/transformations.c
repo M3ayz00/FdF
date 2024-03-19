@@ -6,11 +6,11 @@
 /*   By: msaadidi <msaadidi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 17:09:09 by msaadidi          #+#    #+#             */
-/*   Updated: 2024/03/19 00:29:29 by msaadidi         ###   ########.fr       */
+/*   Updated: 2024/03/19 21:22:18 by msaadidi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "FdF.h"
+#include "../FdF.h"
 
 t_3d_vector	matrix_x_vector(t_3d_matrix m, t_3d_vector v)
 {

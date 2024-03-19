@@ -6,7 +6,7 @@
 #    By: msaadidi <msaadidi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/27 15:48:46 by msaadidi          #+#    #+#              #
-#    Updated: 2024/03/19 00:47:01 by msaadidi         ###   ########.fr        #
+#    Updated: 2024/03/19 21:22:43 by msaadidi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,19 +14,19 @@ NAME = fdf
 CC = cc 
 CFLAGS = -Os -Ofast -Wall -Wextra -Werror 
 MLX_FLAGS = -lmlx -framework OpenGL -framework AppKit
-SRCS = gnl/get_next_line.c \
-	color_gradient.c \
-	color_utils.c \
-	drawing.c \
-	error_handling.c \
-	FdF.c \
-	input_handling.c \
-	line_drawing.c \
-	map_geometry.c \
-	map_parser.c \
-	memory_management.c \
-	scaling_and_offsetting.c \
-	transformations.c
+SRCS = FdF.c \
+	gnl/get_next_line.c \
+	fdf_utils/color_gradient.c \
+	fdf_utils/color_utils.c \
+	fdf_utils/drawing.c \
+	fdf_utils/error_handling.c \
+	fdf_utils/input_handling.c \
+	fdf_utils/line_drawing.c \
+	fdf_utils/map_geometry.c \
+	fdf_utils/map_parser.c \
+	fdf_utils/memory_management.c \
+	fdf_utils/scaling_and_offsetting.c \
+	fdf_utils/transformations.c
 	
 OBJS = $(SRCS:.c=.o)
 LIBFT = libft/libft.a

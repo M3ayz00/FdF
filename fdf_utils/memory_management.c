@@ -6,11 +6,11 @@
 /*   By: msaadidi <msaadidi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 16:33:59 by msaadidi          #+#    #+#             */
-/*   Updated: 2024/03/19 00:03:34 by msaadidi         ###   ########.fr       */
+/*   Updated: 2024/03/19 21:22:17 by msaadidi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "FdF.h"
+#include "../FdF.h"
 
 void	free_strs(char **strs)
 {

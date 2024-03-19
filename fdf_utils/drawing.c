@@ -6,11 +6,11 @@
 /*   By: msaadidi <msaadidi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 20:57:16 by msaadidi          #+#    #+#             */
-/*   Updated: 2024/03/19 00:28:03 by msaadidi         ###   ########.fr       */
+/*   Updated: 2024/03/19 21:22:14 by msaadidi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "FdF.h"
+#include "../FdF.h"
 
 void	clear_img(t_fdf *fdf)
 {

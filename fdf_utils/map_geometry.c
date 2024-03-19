@@ -6,11 +6,11 @@
 /*   By: msaadidi <msaadidi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 13:45:15 by msaadidi          #+#    #+#             */
-/*   Updated: 2024/03/19 00:25:05 by msaadidi         ###   ########.fr       */
+/*   Updated: 2024/03/19 21:22:17 by msaadidi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "FdF.h"
+#include "../FdF.h"
 
 t_3d_vector	get_vector(t_map point)
 {

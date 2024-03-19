@@ -6,11 +6,11 @@
 /*   By: msaadidi <msaadidi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 15:25:40 by msaadidi          #+#    #+#             */
-/*   Updated: 2024/03/19 00:08:25 by msaadidi         ###   ########.fr       */
+/*   Updated: 2024/03/19 21:22:16 by msaadidi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "FdF.h"
+#include "../FdF.h"
 
 void	my_put_pixel(t_img *img, int x, int y, int color)
 {

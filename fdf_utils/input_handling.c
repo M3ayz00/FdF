@@ -6,11 +6,11 @@
 /*   By: msaadidi <msaadidi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 17:02:49 by msaadidi          #+#    #+#             */
-/*   Updated: 2024/03/19 20:50:20 by msaadidi         ###   ########.fr       */
+/*   Updated: 2024/03/19 21:22:15 by msaadidi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "FdF.h"
+#include "../FdF.h"
 
 void	draw_mode(char mode, t_fdf *fdf)
 {

@@ -6,11 +6,11 @@
 /*   By: msaadidi <msaadidi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 18:13:16 by msaadidi          #+#    #+#             */
-/*   Updated: 2024/03/18 23:59:30 by msaadidi         ###   ########.fr       */
+/*   Updated: 2024/03/19 21:22:17 by msaadidi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "FdF.h"
+#include "../FdF.h"
 
 t_3d_vector	apply_scale(t_3d_vector point, double scale)
 {
