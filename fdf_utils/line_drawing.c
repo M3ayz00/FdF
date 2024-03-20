@@ -6,7 +6,7 @@
 /*   By: msaadidi <msaadidi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 15:25:40 by msaadidi          #+#    #+#             */
-/*   Updated: 2024/03/19 21:22:16 by msaadidi         ###   ########.fr       */
+/*   Updated: 2024/03/19 21:26:20 by msaadidi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	my_put_pixel(t_img *img, int x, int y, int color)
 {
 	char	*dst;
 
-	if ((x < WIDTH && x >= 0) && (y < HEIGHT && y >= 0))
+	if (img && (x < WIDTH && x >= 0) && (y < HEIGHT && y >= 0))
 	{
 		dst = img->addr + (y * img->line_length + x * (img->bpp / 8));
 		*(unsigned int *)dst = color;
