@@ -6,13 +6,13 @@
 #    By: msaadidi <msaadidi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/27 15:48:46 by msaadidi          #+#    #+#              #
-#    Updated: 2024/03/19 21:22:43 by msaadidi         ###   ########.fr        #
+#    Updated: 2024/03/21 00:53:32 by msaadidi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fdf
 CC = cc 
-CFLAGS = -Os -Ofast -Wall -Wextra -Werror 
+CFLAGS = -Os -Ofast -Wall -Wextra -Werror
 MLX_FLAGS = -lmlx -framework OpenGL -framework AppKit
 SRCS = FdF.c \
 	gnl/get_next_line.c \

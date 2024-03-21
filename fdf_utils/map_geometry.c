@@ -6,7 +6,7 @@
 /*   By: msaadidi <msaadidi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 13:45:15 by msaadidi          #+#    #+#             */
-/*   Updated: 2024/03/19 21:22:17 by msaadidi         ###   ########.fr       */
+/*   Updated: 2024/03/21 01:03:15 by msaadidi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,10 @@ double	get_scale(t_map_borders borders)
 
 	width = abs(borders.max.x - borders.min.x);
 	height = abs(borders.max.y - borders.min.y);
+	if (width == 0)
+		width = 1;
+	if (height == 0)
+		height = 1;
 	return (ft_min((WIDTH - WIDTH / 8) / width,
 			(HEIGHT - HEIGHT / 8) / height));
 }

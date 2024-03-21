@@ -6,7 +6,7 @@
 /*   By: msaadidi <msaadidi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/25 14:59:08 by msaadidi          #+#    #+#             */
-/*   Updated: 2024/03/19 21:22:17 by msaadidi         ###   ########.fr       */
+/*   Updated: 2024/03/21 01:43:35 by msaadidi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ char	***get_map_coors(char **map_lines)
 	char	***coors;
 	int		i;
 
+	if (!map_lines)
+		return (NULL);
 	coors = (char ***)ft_calloc(ft_strs_len(map_lines) + 1, sizeof(char **));
 	if (!coors)
 		return (free_strs(map_lines), NULL);
@@ -49,7 +51,7 @@ char	***get_map_coors(char **map_lines)
 	while (map_lines[i])
 	{
 		coors[i] = ft_split(map_lines[i], ' ');
-		if (!coors[i])
+		if (!coors[i] || coors[i][0] == 0)
 			return (free_map_coors(coors), free_strs(map_lines), NULL);
 		i++;
 	}
@@ -88,6 +90,8 @@ t_map	**map_strs_to_elems(char ***map_strs)
 	t_map	**map_elems;
 	int		i;
 
+	if (!map_strs)
+		return (NULL);
 	map_elems = (t_map **)ft_calloc(
 			ft_arr_strs_len(map_strs) + 1, sizeof(t_map *));
 	if (!map_elems)

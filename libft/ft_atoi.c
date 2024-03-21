@@ -6,7 +6,7 @@
 /*   By: msaadidi <msaadidi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 18:04:00 by msaadidi          #+#    #+#             */
-/*   Updated: 2024/02/27 16:00:23 by msaadidi         ###   ########.fr       */
+/*   Updated: 2024/03/20 23:04:01 by msaadidi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	ft_atoi( char *str)
 	}
 	while (ft_isdigit(str[i]))
 		result = result * 10 + str[i++] - '0';
-	if (result > LONG_MAX)
+	if (result > INT_MAX)
 		return (0 - (sign == 1));
 	return (result * sign);
 }

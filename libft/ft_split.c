@@ -6,7 +6,7 @@
 /*   By: msaadidi <msaadidi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 21:34:40 by msaadidi          #+#    #+#             */
-/*   Updated: 2024/03/19 00:31:02 by msaadidi         ###   ########.fr       */
+/*   Updated: 2024/03/20 18:30:11 by msaadidi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,10 +65,14 @@ char	**ft_split(char *s, char c)
 	char	**strings;
 	int		i;
 	int		j;
+	int		count;
 
 	if (!s)
 		return (NULL);
-	strings = (char **)ft_calloc(count_words(s, c) + 1, sizeof(char *));
+	count = count_words(s, c);
+	if (count == 0)
+		return (NULL);
+	strings = (char **)ft_calloc(count + 1, sizeof(char *));
 	if (!strings)
 		return (NULL);
 	i = 0;
