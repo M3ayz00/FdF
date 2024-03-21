@@ -6,7 +6,7 @@
 /*   By: msaadidi <msaadidi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 18:13:16 by msaadidi          #+#    #+#             */
-/*   Updated: 2024/03/19 21:22:17 by msaadidi         ###   ########.fr       */
+/*   Updated: 2024/03/21 21:26:08 by msaadidi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ t_3d_vector	apply_scale(t_3d_vector point, double scale)
 	});
 }
 
-t_3d_vector	apply_offset(t_3d_vector point, t_fdf *fdf,
+t_3d_vector	apply_trans_offset(t_3d_vector point, t_fdf *fdf,
 	t_3d_vector (*trans)(t_3d_vector, t_fdf *))
 {
 	point = trans(point, fdf);
@@ -37,5 +37,5 @@ t_3d_vector	apply_offset(t_3d_vector point, t_fdf *fdf,
 t_3d_vector	scale_n_offset(t_3d_vector point, t_fdf *fdf,
 	t_3d_vector (*trans)(t_3d_vector, t_fdf *))
 {
-	return (apply_offset(apply_scale(point, fdf->scale), fdf, trans));
+	return (apply_trans_offset(apply_scale(point, fdf->scale), fdf, trans));
 }

@@ -6,7 +6,7 @@
 /*   By: msaadidi <msaadidi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 15:51:53 by msaadidi          #+#    #+#             */
-/*   Updated: 2024/03/20 21:51:04 by msaadidi         ###   ########.fr       */
+/*   Updated: 2024/03/21 20:08:07 by msaadidi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	close_hook(void)
 {
-	exit(0);
+	exit(EXIT_SUCCESS);
 }
 
 int	main(int ac, char **av)

@@ -6,7 +6,7 @@
 /*   By: msaadidi <msaadidi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 17:02:49 by msaadidi          #+#    #+#             */
-/*   Updated: 2024/03/19 21:22:15 by msaadidi         ###   ########.fr       */
+/*   Updated: 2024/03/21 20:08:27 by msaadidi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ int	key_hooks(int keycode, void *param)
 	else if (keycode == KEY_R)
 		draw_mode('R', fdf);
 	else if (keycode == 53)
-		exit(0);
+		exit(EXIT_SUCCESS);
 	else if (keycode == KEY_ADD)
 	{
 		if (fdf->scale < 1000)

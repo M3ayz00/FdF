@@ -6,7 +6,7 @@
 /*   By: msaadidi <msaadidi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 16:33:43 by msaadidi          #+#    #+#             */
-/*   Updated: 2024/03/20 21:57:15 by msaadidi         ###   ########.fr       */
+/*   Updated: 2024/03/21 20:07:54 by msaadidi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	perror_and_exit(char *err)
 {
 	ft_putendl_fd(err, 2);
-	exit(1);
+	exit(EXIT_FAILURE);
 }
 
 int	check_filename(t_fdf *fdf, char *filename)
@@ -25,13 +25,13 @@ int	check_filename(t_fdf *fdf, char *filename)
 
 	fdf->filename = ft_strtrim(filename, " \t");
 	if (!fdf->filename)
-		return (free(fdf->filename), 1);
+		return (free(fdf->filename), EXIT_FAILURE);
 	tmp = fdf->filename;
 	name_len = ft_strlen(tmp);
 	tmp += name_len;
 	if (name_len < 4 && ft_strncmp(tmp - 4, ".fdf", 4) != 0)
-		return (1);
-	return (0);
+		return (EXIT_FAILURE);
+	return (EXIT_SUCCESS);
 }
 
 int	parse_args(int ac, char **av, t_fdf *fdf)
@@ -40,7 +40,7 @@ int	parse_args(int ac, char **av, t_fdf *fdf)
 		return (ft_putendl_fd("Usage : ./fdf <mapfile>.", 2));
 	else if (check_filename(fdf, av[1]))
 		return (ft_putendl_fd("Invalid fdf file.", 2));
-	return (0);
+	return (EXIT_SUCCESS);
 }
 
 int	treat_errors(t_fdf *fdf)

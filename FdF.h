@@ -6,7 +6,7 @@
 /*   By: msaadidi <msaadidi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 16:16:09 by msaadidi          #+#    #+#             */
-/*   Updated: 2024/03/18 20:51:54 by msaadidi         ###   ########.fr       */
+/*   Updated: 2024/03/21 21:21:40 by msaadidi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,35 +125,52 @@ typedef struct s_fdf
 	double		depth;
 }	t_fdf;
 
-void			draw_line(t_fdf *fdf, t_3d_vector p0, t_3d_vector p1);
-void			my_put_pixel(t_img *img, int x, int y, int color);
-int				get_color_from_str(char *str);
-t_map			**get_map(char *filename);
+// error_handling
 void			perror_and_exit(char *err);
-void			free_strs(char **strs);
-void			free_map_coors(char ***strs);
-void			free_map_elems(t_map **map_elems);
+int				parse_args(int ac, char **av, t_fdf *fdf);
+int				treat_errors(t_fdf *fdf);
 
-double			get_scale(t_map_borders borders);
-t_map_borders	get_map_borders(t_map **map, double scale, t_fdf *fdf);
+//map_parser
+t_map			**get_map(char *filename);
+
+//memory_management
+void			free_strs(char **strs);
+void			free_map_elems(t_map **map_elems);
+void			free_map_coors(char ***strs);
+
+//scaling_n_offsetting
 t_offset		get_offset(t_map_borders borders);
-t_3d_vector		get_vector(t_map point);
+double			get_scale(t_map_borders borders);
 t_3d_vector		scale_n_offset(t_3d_vector point, t_fdf *fdf,
 					t_3d_vector (*trans)(t_3d_vector, t_fdf *));
-void			draw(t_fdf *fdf, t_3d_vector (*trans)(t_3d_vector, t_fdf *));
-t_3d_vector		apply_offset(t_3d_vector point, t_fdf *fdf,
-					t_3d_vector (*trans)(t_3d_vector, t_fdf *));
 t_3d_vector		apply_scale(t_3d_vector point, double scale);
+t_3d_vector		apply_trans_offset(t_3d_vector point, t_fdf *fdf,
+					t_3d_vector (*trans)(t_3d_vector, t_fdf *));
+
+//map_geometry
+t_3d_vector		get_vector(t_map point);
+t_map_borders	get_map_borders(t_map **map, double scale, t_fdf *fdf);
+
+//color_utils
+int				get_color_from_str(char *str);
 t_color			split_color(int rgbt);
 int				merge_colors(int t, int r, int g, int b);
+
+//color_gradient
 int				grad_col_pos(t_3d_vector start, t_3d_vector curr,
 					t_3d_vector end);
+
+//drawing
+void			my_put_pixel(t_img *img, int x, int y, int color);
+void			draw_line(t_fdf *fdf, t_3d_vector p0, t_3d_vector p1);
+void			draw(t_fdf *fdf, t_3d_vector (*trans)(t_3d_vector, t_fdf *));
+
+//transformations
 t_3d_vector		isometric(t_3d_vector v, t_fdf *fdf);
 t_3d_vector		parallel(t_3d_vector v, t_fdf *fdf);
 t_3d_vector		rotate(t_3d_vector v, t_fdf *fdf);
+
+//input_handling
 int				key_hooks(int keycode, void *param);
-void			clear_img(t_fdf *fdf);
-int				parse_args(int ac, char **av, t_fdf *fdf);
-int				treat_errors(t_fdf *fdf);
-int				close_hook(void);
+
 #endif
