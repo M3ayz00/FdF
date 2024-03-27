@@ -6,7 +6,7 @@
 /*   By: msaadidi <msaadidi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 17:09:09 by msaadidi          #+#    #+#             */
-/*   Updated: 2024/03/19 21:22:18 by msaadidi         ###   ########.fr       */
+/*   Updated: 2024/03/24 01:41:08 by msaadidi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ t_3d_vector	isometric(t_3d_vector v, t_fdf *fdf)
 
 	fdf->depth = 1;
 	v.z *= fdf->depth;
-	x_deg = atan(sqrt(2));
+	x_deg = atan(M_SQRT2);
 	z_deg = 45;
 	v = matrix_x_vector(get_rot_matrix('z', z_deg), v);
 	v = matrix_x_vector(get_rot_matrix('x', x_deg), v);

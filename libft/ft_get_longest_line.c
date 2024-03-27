@@ -1,52 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   memory_management.c                                :+:      :+:    :+:   */
+/*   ft_get_longest_line.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: msaadidi <msaadidi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/27 16:33:59 by msaadidi          #+#    #+#             */
-/*   Updated: 2024/03/23 01:56:39 by msaadidi         ###   ########.fr       */
+/*   Created: 2024/03/23 20:24:04 by msaadidi          #+#    #+#             */
+/*   Updated: 2024/03/23 20:36:40 by msaadidi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../FdF.h"
+#include "libft.h"
 
-void	free_strs(char **strs)
+size_t	ft_get_longest_line(char ***lines)
 {
-	int	i;
+	size_t	i;
+	size_t	longest;
 
-	i = 0;
-	while (strs[i])
+	longest = 0;
+	i = 1;
+	if (lines && lines[0])
+		longest = ft_strs_len(lines[0]);
+	while (lines && lines[i])
 	{
-		free(strs[i]);
+		if (longest < ft_strs_len(lines[i]))
+			longest = ft_strs_len(lines[i]);
 		i++;
 	}
-	free(strs);
-}
-
-void	free_map_coors(char ***strs)
-{
-	int	i;
-
-	i = 0;
-	while (strs[i])
-	{
-		free_strs(strs[i]);
-		i++;
-	}
-	free(strs);
-}
-
-void	free_map_elems(t_map **map_elems)
-{
-	int	i;
-
-	i = 0;
-	while (map_elems[i])
-	{
-		free(map_elems[i]);
-		i++;
-	}
-	free(map_elems);
+	return (longest);
 }

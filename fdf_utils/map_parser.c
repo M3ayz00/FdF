@@ -6,7 +6,7 @@
 /*   By: msaadidi <msaadidi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/25 14:59:08 by msaadidi          #+#    #+#             */
-/*   Updated: 2024/03/21 01:43:35 by msaadidi         ###   ########.fr       */
+/*   Updated: 2024/03/25 17:53:39 by msaadidi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ char	**get_map_lines(int fd)
 			return (close(fd), free(line), NULL);
 		line = (free(line), get_next_line(fd));
 	}
-	lines = ft_split(all_lines, '\n');
+	lines = ft_split(all_lines, "\n");
 	if (!lines)
 		return (close(fd), free(all_lines), NULL);
 	return (close(fd), free(all_lines), lines);
@@ -47,13 +47,12 @@ char	***get_map_coors(char **map_lines)
 	coors = (char ***)ft_calloc(ft_strs_len(map_lines) + 1, sizeof(char **));
 	if (!coors)
 		return (free_strs(map_lines), NULL);
-	i = 0;
-	while (map_lines[i])
+	i = -1;
+	while (map_lines[++i])
 	{
-		coors[i] = ft_split(map_lines[i], ' ');
-		if (!coors[i] || coors[i][0] == 0)
+		coors[i] = ft_split(map_lines[i], " \t");
+		if (!coors[i])
 			return (free_map_coors(coors), free_strs(map_lines), NULL);
-		i++;
 	}
 	return (free_strs(map_lines), coors);
 }
@@ -64,23 +63,21 @@ t_map	**fill_map_elems(char ***map_strs, t_map **map_elems)
 	int		j;
 	char	**z_n_col;
 
-	i = 0;
-	while (map_strs[i])
+	i = -1;
+	while (map_strs[++i])
 	{
-		j = 0;
-		while (map_strs[i][j])
+		j = -1;
+		while (map_strs[i][++j])
 		{
-			z_n_col = ft_split(map_strs[i][j], ',');
+			z_n_col = ft_split(map_strs[i][j], ",");
 			if (!z_n_col)
 				return (free_map_coors(map_strs),
 					free_map_elems(map_elems), NULL);
 			map_elems[i][j] = (t_map){j, i, ft_atoi(z_n_col[0]),
 				get_color_from_str(z_n_col[1]), 0};
 			free_strs(z_n_col);
-			j++;
 		}
 		map_elems[i][j] = (t_map){0, 0, 0, 0, 1};
-		i++;
 	}
 	return (free_map_coors(map_strs), map_elems);
 }
@@ -89,21 +86,21 @@ t_map	**map_strs_to_elems(char ***map_strs)
 {
 	t_map	**map_elems;
 	int		i;
+	int		size;
 
 	if (!map_strs)
 		return (NULL);
+	size = ft_get_longest_line(map_strs);
 	map_elems = (t_map **)ft_calloc(
 			ft_arr_strs_len(map_strs) + 1, sizeof(t_map *));
 	if (!map_elems)
 		return (free_map_coors(map_strs), NULL);
-	i = 0;
-	while (map_strs[i])
+	i = -1;
+	while (map_strs[++i])
 	{
-		map_elems[i] = (t_map *)ft_calloc(
-				ft_strs_len(map_strs[i]) + 1, sizeof(t_map));
+		map_elems[i] = (t_map *)ft_calloc(size + 1, sizeof(t_map));
 		if (!map_elems[i])
 			return (free_map_coors(map_strs), free_map_elems(map_elems), NULL);
-		i++;
 	}
 	return (fill_map_elems(map_strs, map_elems));
 }

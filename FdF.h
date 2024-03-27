@@ -6,7 +6,7 @@
 /*   By: msaadidi <msaadidi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 16:16:09 by msaadidi          #+#    #+#             */
-/*   Updated: 2024/03/21 21:21:40 by msaadidi         ###   ########.fr       */
+/*   Updated: 2024/03/24 17:39:44 by msaadidi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -138,9 +138,7 @@ void			free_strs(char **strs);
 void			free_map_elems(t_map **map_elems);
 void			free_map_coors(char ***strs);
 
-//scaling_n_offsetting
-t_offset		get_offset(t_map_borders borders);
-double			get_scale(t_map_borders borders);
+//scaling_and_offsetting
 t_3d_vector		scale_n_offset(t_3d_vector point, t_fdf *fdf,
 					t_3d_vector (*trans)(t_3d_vector, t_fdf *));
 t_3d_vector		apply_scale(t_3d_vector point, double scale);
@@ -148,6 +146,8 @@ t_3d_vector		apply_trans_offset(t_3d_vector point, t_fdf *fdf,
 					t_3d_vector (*trans)(t_3d_vector, t_fdf *));
 
 //map_geometry
+double			get_scale(t_map_borders borders);
+t_offset		get_offset(t_map_borders borders);
 t_3d_vector		get_vector(t_map point);
 t_map_borders	get_map_borders(t_map **map, double scale, t_fdf *fdf);
 

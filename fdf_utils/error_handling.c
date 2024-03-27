@@ -6,7 +6,7 @@
 /*   By: msaadidi <msaadidi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 16:33:43 by msaadidi          #+#    #+#             */
-/*   Updated: 2024/03/21 20:07:54 by msaadidi         ###   ########.fr       */
+/*   Updated: 2024/03/26 22:56:38 by msaadidi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	perror_and_exit(char *err)
 {
-	ft_putendl_fd(err, 2);
+	perror(err);
 	exit(EXIT_FAILURE);
 }
 
@@ -29,7 +29,7 @@ int	check_filename(t_fdf *fdf, char *filename)
 	tmp = fdf->filename;
 	name_len = ft_strlen(tmp);
 	tmp += name_len;
-	if (name_len < 4 && ft_strncmp(tmp - 4, ".fdf", 4) != 0)
+	if (name_len < 4 || ft_strncmp(tmp - 4, ".fdf", 4) != 0)
 		return (EXIT_FAILURE);
 	return (EXIT_SUCCESS);
 }
@@ -51,7 +51,7 @@ int	treat_errors(t_fdf *fdf)
 	fdf->mlx = mlx_init();
 	if (!fdf->mlx)
 		return (EXIT_FAILURE);
-	fdf->mlx_win = mlx_new_window(fdf->mlx, WIDTH, HEIGHT, "M3ayzoo's FdF");
+	fdf->mlx_win = mlx_new_window(fdf->mlx, WIDTH, HEIGHT, "SELK DYAL L7DID");
 	fdf->img.img = mlx_new_image(fdf->mlx, WIDTH, HEIGHT);
 	if (!fdf->mlx_win || !fdf->img.img)
 		return (EXIT_FAILURE);

@@ -6,7 +6,7 @@
 /*   By: msaadidi <msaadidi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 16:14:16 by msaadidi          #+#    #+#             */
-/*   Updated: 2024/03/19 21:22:12 by msaadidi         ###   ########.fr       */
+/*   Updated: 2024/03/24 01:39:37 by msaadidi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ double	get_position(t_3d_vector start, t_3d_vector curr, t_3d_vector end)
 	double	full_len;
 	double	part_len;
 
-	full_len = sqrt(pow(end.x - start.x, 2) + pow(end.y - start.y, 2));
-	part_len = sqrt(pow(curr.x - start.x, 2) + pow(curr.y - start.y, 2));
+	full_len = hypot(end.x - start.x, end.y - start.y);
+	part_len = hypot(curr.x - start.x, curr.y - start.y);
 	if (full_len)
 		return (part_len / full_len);
 	return (1);

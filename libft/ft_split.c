@@ -6,19 +6,32 @@
 /*   By: msaadidi <msaadidi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 21:34:40 by msaadidi          #+#    #+#             */
-/*   Updated: 2024/03/20 18:30:11 by msaadidi         ###   ########.fr       */
+/*   Updated: 2024/03/24 00:52:52 by msaadidi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static char	*word(char *s, char c, int j)
+static int	is_c_in_str(char c, char *str)
+{
+	int	i;
+
+	i = -1;
+	while (str[++i])
+	{
+		if (str[i] == c)
+			return (1);
+	}
+	return (0);
+}
+
+static char	*word(char *s, char *set, int j)
 {
 	char	*word;
 	int		i;
 
 	i = 0;
-	while (s[j] && s[j] != c)
+	while (s[j] && !is_c_in_str(s[j], set))
 	{
 		i++;
 		j++;
@@ -28,23 +41,23 @@ static char	*word(char *s, char c, int j)
 		return (NULL);
 	j -= i;
 	i = 0;
-	while (s[j] != c && s[j])
+	while (!is_c_in_str(s[j], set) && s[j])
 		word[i++] = s[j++];
 	return (word);
 }
 
-static size_t	count_words(char *s, char c)
+static size_t	count_words(char *s, char *set)
 {
 	size_t	count;
 
 	count = 0;
 	while (*s)
 	{
-		while (*s == c)
+		while (is_c_in_str(*s, set))
 			s++;
 		if (*s)
 			count++;
-		while (*s && *s != c)
+		while (*s && !is_c_in_str(*s, set))
 			s++;
 	}
 	return (count);
@@ -60,7 +73,7 @@ static void	free_all(char **strs, int i)
 	free(strs);
 }
 
-char	**ft_split(char *s, char c)
+char	**ft_split(char *s, char *set)
 {
 	char	**strings;
 	int		i;
@@ -69,7 +82,7 @@ char	**ft_split(char *s, char c)
 
 	if (!s)
 		return (NULL);
-	count = count_words(s, c);
+	count = count_words(s, set);
 	if (count == 0)
 		return (NULL);
 	strings = (char **)ft_calloc(count + 1, sizeof(char *));
@@ -79,9 +92,9 @@ char	**ft_split(char *s, char c)
 	j = 0;
 	while (s[i])
 	{
-		if (s[i] == c && s[i++])
+		if (is_c_in_str(s[i], set) && s[i++])
 			continue ;
-		strings[j] = word(s, c, i);
+		strings[j] = word(s, set, i);
 		if (strings[j] == NULL)
 			return (free_all(strings, j), NULL);
 		i += ft_strlen(strings[j++]);

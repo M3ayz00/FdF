@@ -6,7 +6,7 @@
 /*   By: msaadidi <msaadidi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 15:51:53 by msaadidi          #+#    #+#             */
-/*   Updated: 2024/03/21 20:08:07 by msaadidi         ###   ########.fr       */
+/*   Updated: 2024/03/25 17:34:28 by msaadidi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	main(int ac, char **av)
 	draw(&fdf, isometric);
 	mlx_put_image_to_window(fdf.mlx, fdf.mlx_win, fdf.img.img, 0, 0);
 	mlx_hook(fdf.mlx_win, 2, 0, key_hooks, &fdf);
-	mlx_hook(fdf.mlx_win, 17, 1L << 17, close_hook, &fdf);
+	mlx_hook(fdf.mlx_win, 17, 0, close_hook, &fdf);
 	mlx_loop(fdf.mlx);
 	mlx_destroy_window(fdf.mlx, fdf.mlx_win);
 	free_map_elems(fdf.map);
