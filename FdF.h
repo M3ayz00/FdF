@@ -6,14 +6,14 @@
 /*   By: msaadidi <msaadidi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 16:16:09 by msaadidi          #+#    #+#             */
-/*   Updated: 2024/03/24 17:39:44 by msaadidi         ###   ########.fr       */
+/*   Updated: 2024/10/23 14:27:26 by msaadidi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FDF_H
 # define FDF_H
 
-# include <mlx.h>
+# include "mlx/mlx.h"
 # include <errno.h>
 # include <unistd.h>
 # include <stdio.h>

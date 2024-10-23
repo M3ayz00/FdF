@@ -6,14 +6,14 @@
 #    By: msaadidi <msaadidi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/27 15:48:46 by msaadidi          #+#    #+#              #
-#    Updated: 2024/03/23 20:39:18 by msaadidi         ###   ########.fr        #
+#    Updated: 2024/10/23 14:38:09 by msaadidi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fdf
 CC = cc 
 CFLAGS = -Os -Ofast -Wall -Wextra -Werror
-MLX_FLAGS = -lmlx -framework OpenGL -framework AppKit
+MLX_FLAGS = -Lmlx -lmlx -framework OpenGL -framework AppKit 
 SRCS = FdF.c \
 	gnl/get_next_line.c \
 	fdf_utils/color_gradient.c \
@@ -32,6 +32,9 @@ OBJS = $(SRCS:.c=.o)
 LIBFT = libft/libft.a
 
 all : $(NAME)
+
+%.o: %.c
+	$(CC) -Wall -Wextra -Werror -Imlx -c $< -o $@
 
 $(NAME) : $(OBJS)
 	@cd libft && make && make clean
